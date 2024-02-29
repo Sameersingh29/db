@@ -1,0 +1,9 @@
+select c.Branch_id, b.Book_id, b.Title, b.Publisher_name, a.author_name, c.no_of_copies from book b, book_authors a, book_copies c where b.Book_id=a.Book_id and b.Book_id=c.Book_id order by c.Branch_id;
+
+select card_no from book_landing where data_out >= '2017-01-01' and Date_out<= '2017-06-30' group by Card_no having COUNT(*)>3;
+
+delete from book where Book_id = 1005;
+
+create view v.pub as select Pub_year from book;
+
+create view v_books as select b.Book_id, b.Title, c.no_of_copies from book b, book_copies c, library_branch l where b.Book_id=c.Book_id and l.Branch_id = c.Branch_id;
